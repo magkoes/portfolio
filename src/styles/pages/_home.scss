@@ -1,0 +1,9 @@
+.rectangle{
+    position: absolute;
+    top: calc(50% + 37px);
+    left: 50%;
+    width: 50%;
+    height: 50%;
+    border: 1px solid $color-white;
+    transform: translate(-50%, -50%);
+}

@@ -1,0 +1,18 @@
+// =============================================================================
+// Font face
+// =============================================================================
+
+// Abril Fatface
+@include font-face('AbrilFatface', '../../assets/fonts/AbrilFatface-Regular', 400, normal);
+
+// Poppins
+@include font-face('Poppins', '../../assets/fonts/Poppins-Regular', 400, normal);
+@include font-face('Poppins', '../../assets/fonts/Poppins-Italic', 400, italic);
+
+// Worsans
+@include font-face('WorkSans', '../../assets/fonts/WorkSans-Light', 300, normal);
+@include font-face('WorkSans', '../../assets/fonts/WorkSans-LightItalic', 300, italic);
+
+a{
+    text-decoration: none;
+}

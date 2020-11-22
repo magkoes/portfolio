@@ -1,0 +1,168 @@
+// =============================================================================
+// Fonts
+// =============================================================================
+ 
+// Font Face
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: woff2 woff) {
+    $src: null;
+  
+    $formats: (
+        otf: "opentype",
+        ttf: "truetype"
+    );
+  
+    @each $ext in $exts {
+        $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+        $src: append($src, url(quote($path + "." + $ext)) format(quote($format)), comma);
+    }
+  
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: $src;
+    }
+ }
+  
+ // Function
+ @function rem($size) {
+    @return ($size / $font-base) * 1rem;
+ }
+  
+ // Unit
+ @function strip-unit($value) {
+    @return $value / ($value * 0 + 1);
+ }
+  
+ // Font size
+ @mixin font-size($min-font-size, $max-font-size) {
+    $min-vw: 375px;
+    $max-vw: 1280px;
+    $u1: unit($min-vw);
+    $u2: unit($max-vw);
+    $u3: unit($min-font-size);
+    $u4: unit($max-font-size);
+  
+    @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
+      & {
+        font-size: rem($min-font-size);
+        @media screen and (min-width: $min-vw) {
+            font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
+        }
+        @media screen and (min-width: $max-vw) {
+          font-size: rem($max-font-size);
+        }
+      }
+    }
+ }
+  
+ // Font
+ @mixin font($family, $max-size, $min-size: $max-size, $weight: normal, $style: normal, $height: normal, $spacing: normal){
+    font-family: $family;
+    @include font-size($min-size, $max-size);
+    font-weight: $weight;
+    font-stretch: normal;
+    font-style: $style;
+    line-height: $height;
+    letter-spacing: $spacing;
+ }
+  
+ // =============================================================================
+ // Elements
+ // =============================================================================
+ 
+ // Pseudo elements
+ @mixin pseudo($content: '', $position: relative, $display: block){
+    content: $content;
+    position: $position;
+    display: $display;
+ }
+ 
+ // Position
+ @mixin position($top: 0, $left: 0, $right: 0, $bottom: 0){
+    top: $top;
+    left: $left;
+    right: $right;
+    bottom: $bottom;
+ }
+ 
+ // Reset button
+ @mixin reset-btn(){
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    outline: none;
+ }
+ 
+ // Reset link
+ @mixin reset-a($color: $color-black){
+    text-decoration: none;
+    color: $color;
+ }
+ 
+ // Keep aspect ratio
+ @mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+    > .content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+ }
+ 
+ 
+ // =============================================================================
+ // Animation
+ // =============================================================================
+ 
+ @mixin transition($duration: 0.3s , $prop: all, $function: ease-in-out){
+    transition: $duration $prop $function;
+ }
+ 
+ // =============================================================================
+ // Responsive
+ // =============================================================================
+ 
+ // Mobile first
+ @mixin breakpoint-up($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+ }
+ 
+ // Desktop first
+ @mixin breakpoint-down($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: map-get($breakpoints, $breakpoint)) {
+            @content;
+        }
+    }
+ }
+ 
+ // =============================================================================
+ // Shape
+ // =============================================================================
+ 
+ @mixin circle($size){
+    width: $size;
+    height: $size;
+    border-radius: 50%;
+ }
+ 
+ @mixin square($size, $radius: 0){
+    width: $size;
+    height: $size;
+    border-radius: $radius;
+ }
+ 
+ 
