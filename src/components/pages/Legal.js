@@ -2,7 +2,9 @@ import React from 'react';
 
 const Legal = () => {
     return ( 
-        <h1>Légales</h1>
+        <main>
+            <h1>Légales</h1>
+        </main>
      );
 }
  
