@@ -4,11 +4,10 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-const GalleryList = ({settings}) => {
+const GalleryList = (settings) => {
 
     const [categories, setCategories] = useState([]);
     const [galleryList, setGalleryList] = useState([]);
-    const [loader, setLoader] = useState(true);
 
     useEffect(()=>{
         axios
@@ -21,7 +20,6 @@ const GalleryList = ({settings}) => {
             axios
                 .get(axios.defaults.baseURL + 'acf/v3/categories/' + category.id)
                 .then(response => {
-                    setLoader(false);
                     setGalleryList(oldArray => [...oldArray, {'id': category.id, 'name': category.name, 'description': category.description,'cover': response.data.acf.cover_category}]);
                 })
         });
@@ -34,11 +32,9 @@ const GalleryList = ({settings}) => {
                     return(
                         <div className="gallery-item" key={galleryItem.id}>
                             <h2 className="gallery-item__name">{galleryItem.name}</h2>
-                            <p>{galleryItem.description}</p>
-                            <div className="gallery-item__cover">
-                                <img src={galleryItem.cover.bg.url} alt={galleryItem.cover.bg.name}/>
-                                <img src= {galleryItem.cover.fg.url} alt={galleryItem.cover.fg.url}/>
-                            </div>
+                            <p className="gallery-item__desc">{galleryItem.description}</p>
+                            <img className="gallery-item__cover gallery-item__cover__bg" src={galleryItem.cover.bg.url} alt={galleryItem.cover.bg.name}/>
+                            <img className="gallery-item__cover gallery-item__cover__fg" src= {galleryItem.cover.fg.url} alt={galleryItem.cover.fg.url}/>
                         </div>
                     )
                 })}

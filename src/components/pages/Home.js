@@ -1,25 +1,18 @@
 import React, { useState } from "react";
 import GalleryList from '../layouts/GalleryList';
 
-const Home = (loader) => {
+const Home = (settings) => {
 
-    var settings = {
+    var settings = 'unslick';
+     /* {
         slidesToShow: 1,
         slidesToScroll: 1,
         arrows: false
     }
-
+ */
     return ( 
         <main className="main-homepage">
-           
-            {loader ? (
-                <h1>Loading</h1>
-            ) : (
-                <div>
-                    <div className="rectangle"></div>
-                    <GalleryList {...settings}></GalleryList>
-                </div>
-            )}
+            <GalleryList {...settings}></GalleryList>
         </main>
      );
 }

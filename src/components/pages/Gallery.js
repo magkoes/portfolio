@@ -1,7 +1,7 @@
 import React from 'react';
 import GalleryList from '../layouts/GalleryList';
 
-const Gallery = () => {
+const Gallery = (settings) => {
     
     var settings = {
         slidesToShow: 1,
@@ -10,8 +10,9 @@ const Gallery = () => {
         centerMode: true, 
         centerPadding: '20%',
     }
+
     return ( 
-        <main className="gallery">
+        <main className="main-gallery">
             <GalleryList {...settings}></GalleryList>
         </main>
      );

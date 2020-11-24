@@ -1,0 +1,57 @@
+.main-gallery{
+    .slick-slide{
+        display: flex!important;
+        align-items: center;
+        height: 100vh;
+        transform: scale(0.8);
+        opacity: 0.5;
+        @include transition();
+        &.slick-current{
+            transform: scale(1);
+            opacity: 1;
+            .gallery-item{
+                &__name,
+                &__desc{
+                    opacity: 1;
+                }
+            }
+        }
+        & > div{
+            width: 100%;
+        }
+    }
+    .gallery-item{
+        position: absolute;
+        top: 50%;
+        transform: translateY(calc(-50% + 40px));
+        display: flex!important;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 70vh;
+        border-radius: 5px;
+        &__name,
+        &__desc{
+            text-align: center;
+            opacity: 0;
+            @include transition();
+        }
+        &__name{
+            @include font($font-abrilfatface, 72px);
+        }
+        &__desc{
+            @include font($font-poppins, 18px);
+            margin-bottom: -12px;
+        }
+        &__cover__fg{
+            display: none;
+        }
+        &__cover__bg{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 5px;
+            z-index: -1;
+        }
+    }
+}

@@ -1,26 +1,51 @@
 .rectangle{
-    position: absolute;
-    top: calc(50% + 37px);
+    top: calc(50% + 35px);
     left: 50%;
-    width: 50%;
-    height: 50%;
-    border: 1px solid $color-white;
+    @include aspect-ratio(755px, 540px);
+    position: absolute;
+    width: 655px;
     transform: translate(-50%, -50%);
+    z-index: 3;
+    &:before{
+        border: 3px solid $color-white;
+    }
 }
 
 .main-homepage{
-    /* .gallery-list{
-        position: absolute;
-        @include position();
-    } */
+    .gallery-list{
+        height: 100vh;
+    }
+    .slick-arrow{
+        display: none!important;
+    }
     .gallery-item{
+        position: relative;
+        display: flex!important;
+        flex-direction: column;
+        justify-content: center;
+        height: 100vh;
         &__name{
-           /*  position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            @include font($font-abrilfatface, 144px, 60px);
+            text-align: center;
+            text-transform: uppercase;
+            margin: 40px auto 0;
+        }
+        &__desc{
+            max-width: 60%;
+            @include font($font-poppins, 18px, 16px);
+            text-align: center;
+            z-index: 2;
+            margin: 0 auto;
+        }
+        &__cover{
+            position: absolute;
+            @include position();
             width: 100%;
-            height: 100%; */
+            height: 100%;
+            object-fit: cover;
+        }
+        &__cover__bg{
+            z-index: -1;
         }
     }
 }
