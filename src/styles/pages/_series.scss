@@ -1,5 +1,5 @@
 .main-gallery{
-    .slick-slide{
+    /* .slick-slide{
         display: flex!important;
         align-items: center;
         height: 100vh;
@@ -19,9 +19,9 @@
         & > div{
             width: 100%;
         }
-    }
+    } */
     .gallery-item{
-        position: absolute;
+        /* position: absolute;
         top: 50%;
         transform: translateY(calc(-50% + 40px));
         display: flex!important;
@@ -34,7 +34,7 @@
             text-align: center;
             opacity: 0;
             @include transition();
-        }
+        } */
         &__name{
             @include font($font-abrilfatface, 72px);
         }
@@ -45,13 +45,13 @@
         &__cover__fg{
             display: none;
         }
-        &__cover__bg{
+       /*  &__cover__bg{
             position: absolute;
             width: 100%;
             height: 100%;
             object-fit: cover;
             border-radius: 5px;
             z-index: -1;
-        }
+        } */
     }
 }

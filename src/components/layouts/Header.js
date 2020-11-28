@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import classNames from 'classnames';
-// Common
-import Button from '../common/Button';
 // Pages
 import Legal from '../pages/Legal';
 import Home from '../pages/Home';
@@ -37,9 +35,9 @@ const Header = () => {
         <Router>
             <header className="header">
                 <nav className="header__nav">
-                    <ul className="header__nav__list">
+                    <ul className="header__nav__list" role="navigation" aria-label="main">
                         <li className="header__nav__item">
-                            <Button className={[`btn-burger-icon ${burgerIconClass}`]} onClick={handleClickBurgerIcon}><span></span></Button>
+                            <button className={[`btn-burger-icon ${burgerIconClass}`]} onClick={handleClickBurgerIcon} aria-label="Open the menu" aria-controls="secondary" aria-expanded={burgerIconIsPressed}><span aria-hidden="true"></span></button>
                         </li>
                         <li className="header__nav__item">
                             <Link to="/"><span className="brand">Magalie Koessler <span>Photographe</span></span></Link>       
@@ -54,7 +52,10 @@ const Header = () => {
             <div className={[`nav-burger ${navBurgerClass}`]}>
                 <div className="nav-burger__left">
                     <nav className="nav-burger__header">
-                        <ul className="nav-burger__header__list">
+                        <ul id="secondary" className="nav-burger__header__list" role="navigation" aria-label="secondary">
+                            <li className="nav-burger__header__list__item">
+                                <Link to="/" onClick={handleClickNavLink}>Accueil</Link>
+                            </li>
                             <li className="nav-burger__header__list__item">
                                 <Link to="/a-propos" onClick={handleClickNavLink}>A propos</Link>
                             </li>
@@ -63,7 +64,7 @@ const Header = () => {
                             </li>
                         </ul>
                     </nav>
-                    <nav className="nav-burger__body">
+                    <nav className="nav-burger__body" role="navigation" aria-label="tertiary">
                         <ul className="header__nav-burger__list">
                             <li className="nav-burger__header__list__item">
                                 Suivez-moi
@@ -75,7 +76,7 @@ const Header = () => {
                         </ul>
                     </nav>
                     <nav className="nav-burger__footer">
-                        <ul className="header__nav-burger__list">
+                        <ul className="header__nav-burger__list" role="navigation" aria-label="legal">
                             <li>Tous droits reservé</li>
                             <li className="nav-burger__header__list__item">
                                 <Link to="/mentions-legales" onClick={handleClickNavLink}>Mentions légales</Link>

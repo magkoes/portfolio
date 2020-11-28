@@ -1,19 +1,11 @@
 import React from 'react';
 import GalleryList from '../layouts/GalleryList';
 
-const Gallery = (settings) => {
-    
-    var settings = {
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        centerMode: true, 
-        centerPadding: '20%',
-    }
+const Gallery = () => {
 
     return ( 
         <main className="main-gallery">
-            <GalleryList {...settings}></GalleryList>
+            <h1>Gallery</h1>    
         </main>
      );
 }

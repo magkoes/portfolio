@@ -20,9 +20,9 @@
     transform: translateX(-100%);
     @include transition();
     z-index: 998;
-    &--open{
-        transform: translateX(0);
-    }
+    // &--open{
+    //     transform: translateX(0);
+    // }
     &__left{
         display: flex;
         flex-direction: column;
@@ -46,6 +46,7 @@
     position: relative;
     width: 24px;
     height: 12px;
+    outline: none;
     &--clicked{
         span{
             opacity: 0;
