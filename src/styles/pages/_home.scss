@@ -15,10 +15,6 @@ body{
     overflow: hidden;
 }
 
-.brand{
-    display: none;
-}
-
 .cover{
     position: absolute;
     @include position();

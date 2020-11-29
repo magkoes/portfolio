@@ -50,44 +50,54 @@ const Header = () => {
             </header> 
 
             <div className={[`nav-burger ${navBurgerClass}`]}>
-                <div className="nav-burger__left">
-                    <nav className="nav-burger__header">
-                        <ul id="secondary" className="nav-burger__header__list" role="navigation" aria-label="secondary">
-                            <li className="nav-burger__header__list__item">
-                                <Link to="/" onClick={handleClickNavLink}>Accueil</Link>
-                            </li>
-                            <li className="nav-burger__header__list__item">
-                                <Link to="/a-propos" onClick={handleClickNavLink}>A propos</Link>
-                            </li>
-                            <li>
-                                <Link to="/contact" onClick={handleClickNavLink}>Contact</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav className="nav-burger__body" role="navigation" aria-label="tertiary">
-                        <ul className="header__nav-burger__list">
-                            <li className="nav-burger__header__list__item">
-                                Suivez-moi
-                                <ul>
-                                    <a href="https://www.instagram.com/realitymage/" target="_blank" rel="noreferrer">Instagram</a>
-                                    <a href="https://fr.linkedin.com/in/magalie-koessler-995419157" target="_blank"  rel="noreferrer">Linkedin</a>
+                <div className="nav-burger__wrapper">
+                    <div className="nav-burger__left">
+                        <div className="nav-burger__left__wrapper">
+                            <nav className="nav-burger__header">
+                                <ul id="secondary" className="nav-burger__header__list" role="navigation" aria-label="secondary">
+                                    <li className="nav-burger__header__list__item">
+                                        <Link to="/" onClick={handleClickNavLink}>Accueil</Link>
+                                    </li>
+                                    <li className="nav-burger__header__list__item">
+                                        <Link to="/a-propos" onClick={handleClickNavLink}>A propos</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/contact" onClick={handleClickNavLink}>Contact</Link>
+                                    </li>
                                 </ul>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav className="nav-burger__footer">
-                        <ul className="header__nav-burger__list" role="navigation" aria-label="legal">
-                            <li>Tous droits reservé</li>
-                            <li className="nav-burger__header__list__item">
-                                <Link to="/mentions-legales" onClick={handleClickNavLink}>Mentions légales</Link>
-                            </li>
-                            <li>
-                                <Link to="/politique-de-confidentialite" onClick={handleClickNavLink}>Politique de confidentialité</Link>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div className="nav-burger__right">
+                            </nav>
+                            <nav className="nav-burger__body" role="navigation" aria-label="tertiary">
+                                <ul className="header__nav-burger__list">
+                                    <li className="nav-burger__header__list__item">
+                                        Suivez-moi
+                                        <ul>
+                                            <a href="https://www.instagram.com/realitymage/" target="_blank" rel="noreferrer">Instagram</a>
+                                            <a href="https://fr.linkedin.com/in/magalie-koessler-995419157" target="_blank"  rel="noreferrer">Linkedin</a>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <nav className="nav-burger__footer">
+                                <ul className="header__nav-burger__list" role="navigation" aria-label="legal">
+                                    <li className="nav-burger__header__list__item">
+                                        <Link to="/mentions-legales" onClick={handleClickNavLink}>Mentions légales</Link>
+                                    </li>
+                                    <li>
+                                        <Link to="/politique-de-confidentialite" onClick={handleClickNavLink}>Politique de confidentialité</Link>
+                                    </li>
+                                    <li>Tous droits reservé</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div className="nav-burger__right">
+                        <div className="nav-burger__right__title">
+                            <p>La dernière série</p>
+                            <h2>Reliefs</h2>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1445264918150-66a2371142a2?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=700&q=80" alt=""/>
+                        <img src="https://images.unsplash.com/photo-1445264918150-66a2371142a2?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=700&q=80" alt=""/>
+                    </div>
                 </div>
             </div>
             
